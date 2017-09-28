@@ -17,6 +17,11 @@ mongoose.connect('mongodb://localhost/vidjot-dev', {
 .then(() => console.log('MongoDB Connected'))
 .catch(err => console.log(err));
 
+//Load Idea Model
+
+require("./models/Idea");
+const Idea = mongoose.model('ideas');
+
 //Handle Bars Middle Ware
 app.engine('handlebars', exphbs({
     defaultLayout: 'main'
@@ -27,10 +32,10 @@ app.set('view engine', 'handlebars');
 // Index Route
 
 app.get('/', (req, res) => {
-    const title = "Welcome"
+    const title = "Welcome";
     res.render('index', {
         title: title
-    })
+    });
 });
 
 //About Route

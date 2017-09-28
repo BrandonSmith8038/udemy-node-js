@@ -1,19 +1,28 @@
 const express = require('express');
+const exphbs = require("express-handlebars");
 
-const app= express();
+const app = express();
+
+//Handle Bars Middle Ware
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main'
+}));
+app.set('view engine', 'handlebars');
+
 
 // Index Route
 
 app.get('/', (req, res) => {
-    res.send('INDEX')
+    const title = "Welcome"
+    res.render('index', {
+        title: title
+    })
 });
 
 //About Route
 app.get('/about', (req, res) => {
-    res.send('ABOUT');
-})
-
-const port = 5000;
+    res.render('about');
+});
 
 app.listen(process.env.PORT,process.env.IP, () => {
     console.log(`Server started at ${process.env.IP}:${process.env.PORT}`);

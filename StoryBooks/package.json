@@ -5,12 +5,13 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
-    
   },
   "author": "Brandon Smith",
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.1",
-    "mongoose": "^4.11.13"
+    "mongoose": "^4.11.13",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0"
   }
 }

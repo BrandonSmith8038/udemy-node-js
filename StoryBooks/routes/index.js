@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/dashboard', (req, res) => {
-  res.send('DASHBOARD');
+  res.render('index/dashboard');
 });
 
 module.exports = router;

@@ -76,4 +76,30 @@ router.post('/', (req, res) => {
   
 });
 
+// Edit Form Process
+router.put('/:id', (req, res) => {
+
+  let allowComments;
+ Story.findOne({
+    _id: req.params.id
+  })
+    .then(story => {
+    if(req.body.allowComments){
+      allowComments = true;
+    } else {
+    allowComments = false;
+    }
+    // New Values
+    story.title = req.body.title;
+    story.body = req.body.body;
+    story.status = req.body.status;
+    story.allowComments = allowComments;
+    
+    story.save()
+    .then(story => {
+      res.redirect('/dashboard');
+    });
+  });
+});
+
 module.exports = router;

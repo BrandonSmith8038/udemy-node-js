@@ -27,3 +27,13 @@
   #delete-form {
     display: inline;
   }
+  
+  .nav-image {
+    border-radius: 50%; 
+    display: inline; 
+    max-width: 25px;
+  }
+  
+  #dashboard-link a{
+    display: inline-block;
+  }
